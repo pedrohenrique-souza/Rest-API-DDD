@@ -1,0 +1,6 @@
+@RestApiModeloDDD.API_HostAddress = http://localhost:5049
+
+GET {{RestApiModeloDDD.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
