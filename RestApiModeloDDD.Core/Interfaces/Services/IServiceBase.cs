@@ -2,7 +2,10 @@ namespace RestApiModeloDDD.Domain.Core.Interfaces.Services;
 
 public interface IServiceBase<TEntity> where TEntity : class
 {
-    void Add(TEntity obj);
+    void Add(TEntity obj)
+    {
+        throw new NotImplementedException();
+    }
     void Update(TEntity obj);
     void Remove(TEntity obj);
     IEnumerable<TEntity> GetAll();
