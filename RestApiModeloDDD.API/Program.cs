@@ -1,13 +1,18 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 using RestApiModeloDDD.Infrastructure.CrossCutting.IOC;
+using RestApiModeloDDD.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+var connection = builder.Configuration["SqlConnection:SqlConnectionString"];
+builder.Services.AddDbContext<SqlContext>(options => 
+    options.UseSqlServer(connection));
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen(c =>
